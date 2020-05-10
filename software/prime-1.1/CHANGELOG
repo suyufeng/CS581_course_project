@@ -1,0 +1,7 @@
+=== v1.1 (17, Jul 2007) ===
+Several errors have been corrected.
+Some heuristics (subfamily bundling, unchanged fixing) has been introduced.
+Portability of the source codes and `Makefile' have been improved.
+
+=== v1.0 (30, Nov 2006) ===
+Initial Release.

@@ -1,0 +1,6 @@
+# $gop $gep1
+9 1
+# $critical_gap_length $gep2: $gep1 > $gep2
+# in this example, g(x) = max{1x+9, 0.5x+16.5}
+# if you employ affine gap cost, the following lines are ignored
+15 0.5

@@ -1,0 +1,21 @@
+The simplest way of its compile is to type `make'.
+
+The `Makefile' basically assumes that you use the programs:
+	  (i) GNU make,
+	 (ii) GNU g++, and
+	(iii) GNU sed (if you want to use an older g++).
+These programs are required for generating source file
+dependency information. Therefore, even if you do not
+use GNU make, you can use `Makefile' with target `binary'; 
+`make binary' also generates the `prime' binary.
+
+If you use a compiler such as icc or older g++
+you may have to add the `-DCLIMITS' option to `CXXFLAGS'.
+For details, see `Makefile'.
+
+After compile, copy `prime' into your favorite directory.
+In addition, it would also be convinient to copy `gap'
+(that specifies gap cost parameters), and substitution matrix
+into the same directory.
+
+This document is still under construction. Sorry for inconvenience.

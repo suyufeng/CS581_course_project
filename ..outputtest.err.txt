@@ -1,0 +1,2 @@
+PASTA WARNING: signal killed_handler called with no jobs running. Exiting.
+

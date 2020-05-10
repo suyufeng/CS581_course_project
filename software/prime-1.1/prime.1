@@ -1,0 +1,125 @@
+.\"
+.\" Copyright (c) 2006-2007 Shinsuke Yamada
+.\"
+.TH prime 1 "2007-07-17" \" -*- nroff -*-
+.SH NAME
+prime \- multiple sequence alignment program
+
+.SH SYNOPSIS
+prime [options] [-o output_file] [-i] input_file
+
+.SH DESCRIPTION
+\fBprime\fR constructs multiple sequence alignment using 
+a doubly nested randomized iterative strategy. \fBprime\fR 
+can use not only an usual affine gap cost but also 
+a piecewise linear gap cost.
+
+.SH EXAMPLES
+.TP
+.B prime -a affine -i foo -o bar
+align the sequences in `foo', and output the result to `bar'
+.TP
+.B prime -s BLOSUM62 -g gfile -f msf foo
+align the sequences in `foo'  using `BLOSUM62' matrix and
+gap cost specified by `gfile', and output the result to `stdout'
+
+.SH OPTIONS
+.TP
+.SH "BASIC OPTIONS"
+.TP
+.B -i, --input FILE
+Read FILE as input; FILE must be FASTA format
+.TP
+.B -o, --output FILE
+Output alignment to FILE;
+if this option is not specified, output to `stdout'
+.TP
+.B -f, --format  FMT
+Use FMT format for output;
+FMT is `fasta', `msf', `phylip', or `gde'
+.TP
+.B -t, --residue-type TYPE
+Input sequences are treated as TYPE ones;
+TYPE is `amino', `dna', or `rna'
+.TP
+.B -s, --substitution-matrix FILE
+Use substitution matrix FILE
+.TP
+.B -g, --gap-cost FILE
+Set gap cost parameters specified by FILE
+.TP
+.B -a, --algorithm GCOST
+Use GCOST for group-to-group sequence alignment;
+GCOST is `piecewise' or `affine'
+.TP
+.B -d, --distance MTHD
+Use MTHD for initial distance calculation;
+MTHD is `psa' or `oligo'
+.TP
+.B -r, --num-recalculation NUM
+Set no. of initial distance recalculation to NUM
+.TP
+.\".B -n, --anchor MTHD
+.\"Use MTHD for anchor point calculation;
+.\"MTHD is `nongap', `none', or `cons'
+.B -b, --subfamily-bundle VAL
+Use VAL as a threshold of bundling subfamilies;
+if VAL <= 0.0, bundling is disabled
+.TP
+.B -u, --unchanged-fix MTHD
+Use MTHD for unchanged fixing. MTHD is `ucr' (unchanged region),
+`ucs' (unchanged subfamily), `ucrs' (unchanged region and subfamily),
+or `nouc' (disable unchanged fixing)
+.TP
+.B -p, --phylogenetic-tree ALG
+Use ALG to calculate phylogenetic tree (currently unsupported)
+.TP
+.B --help
+Print help message (do not specify the other options)
+.TP
+.SH "DETAILED OPTIONS"
+.TP
+.B --num-outer-iteration NUM
+Set the number of outer iteration to NUM
+.TP
+.B --cutoff VAL
+Set cutoff value of outer iteration to VAL
+.TP
+.B --equalization-factor VAL
+Set equalization factor to VAL
+
+.SH TODO
+.TP
+Implement anchoring method
+.TP
+Support UPGMA method
+
+.SH LICENSE
+PRIME is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+PRIME is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with PRIME; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+.SH REFERENCES
+[1] Yamada,S., Gotoh,O. and Yamana,H. (2006) BMC Bioinformatics, 7, 524.
+
+[2] Gotoh,O. (1996) J. Mol. Biol., 264, 823-838.
+
+[3] Gotoh,O. (1990) Bull. Math. Biol., 52, 359-373.
+
+[4] Gotoh,O. (1993) Comput. Appl. Biosci., 9, 361-370.
+
+[5] Gotoh,O. (1994) Comput. Appl. Biosci., 10, 379-387.
+
+
+.SH AUTHOR
+Shinsuke Yamada <shinsuke@yama.info.waseda.ac.jp>
